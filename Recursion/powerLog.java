@@ -1,17 +1,20 @@
 package Recursion;
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 
 
 public class powerLog {
     
-    public static int power(int n, int p)
+    public static long power(int n, int p)
     {
         if(p==0) return 1;
-       // if(p==1) return n;
-        int ans = n * power(n,p-1);
-        return ans;
+       
+        long ans = power(n,p/2);
+
+        if(p%2==0) return ans*ans; //if power is even
+        else return ans * ans * n; //if power is odd
     }
     
     public static void main(String[] args) {
